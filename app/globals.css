@@ -1,0 +1,286 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match Chain-Tale design brief with warm, creative storytelling theme */
+  --background: oklch(1 0 0); /* Clean white background */
+  --foreground: oklch(0.25 0 0); /* Dark gray for text (#374151) */
+  --card: oklch(0.98 0.02 142); /* Light green for cards (#f0fdf4) */
+  --card-foreground: oklch(0.25 0 0); /* Dark gray for card text */
+  --popover: oklch(1 0 0); /* White background for popovers */
+  --popover-foreground: oklch(0.25 0 0); /* Dark gray for popover text */
+  --primary: oklch(0.45 0.15 142); /* Green-700 for primary actions (#15803d) */
+  --primary-foreground: oklch(1 0 0); /* White text on primary buttons */
+  --secondary: oklch(0.98 0.02 142); /* Light green for secondary elements */
+  --secondary-foreground: oklch(0.25 0 0); /* Dark gray for secondary text */
+  --muted: oklch(0.98 0.02 142); /* Light green for muted backgrounds */
+  --muted-foreground: oklch(0.45 0 0); /* Muted gray for less important text */
+  --accent: oklch(0.75 0.15 100); /* Bright green accent (#84cc16) */
+  --accent-foreground: oklch(0.25 0 0); /* Dark text on accent elements */
+  --destructive: oklch(0.55 0.22 25); /* Red for destructive actions */
+  --destructive-foreground: oklch(1 0 0); /* White text on destructive buttons */
+  --border: oklch(0.92 0 0); /* Light gray borders */
+  --input: oklch(0.98 0.02 142); /* Light green input backgrounds */
+  --ring: oklch(0.75 0.15 100); /* Bright green focus rings */
+  --chart-1: oklch(0.45 0.15 142);
+  --chart-2: oklch(0.75 0.15 100);
+  --chart-3: oklch(0.65 0.18 85);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.6 0.2 280);
+  --radius: 0.5rem; /* Friendly rounded corners */
+  --sidebar: oklch(0.98 0.02 142);
+  --sidebar-foreground: oklch(0.25 0 0);
+  --sidebar-primary: oklch(0.45 0.15 142);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.75 0.15 100);
+  --sidebar-accent-foreground: oklch(0.25 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.75 0.15 100);
+}
+
+.dark {
+  /* Updated dark mode tokens to maintain the storytelling theme in dark mode */
+  --background: oklch(0.08 0 0); /* Very dark background */
+  --foreground: oklch(0.95 0 0); /* Light text */
+  --card: oklch(0.12 0.01 142); /* Dark green-tinted cards */
+  --card-foreground: oklch(0.95 0 0); /* Light text on cards */
+  --popover: oklch(0.08 0 0); /* Dark popover background */
+  --popover-foreground: oklch(0.95 0 0); /* Light popover text */
+  --primary: oklch(0.55 0.15 142); /* Brighter green for dark mode */
+  --primary-foreground: oklch(0.08 0 0); /* Dark text on primary buttons */
+  --secondary: oklch(0.15 0.01 142); /* Dark green secondary */
+  --secondary-foreground: oklch(0.95 0 0); /* Light secondary text */
+  --muted: oklch(0.15 0.01 142); /* Dark muted backgrounds */
+  --muted-foreground: oklch(0.65 0 0); /* Muted light text */
+  --accent: oklch(0.75 0.15 100); /* Keep bright accent in dark mode */
+  --accent-foreground: oklch(0.08 0 0); /* Dark text on accent */
+  --destructive: oklch(0.6 0.22 25); /* Slightly brighter red for dark mode */
+  --destructive-foreground: oklch(0.95 0 0); /* Light text on destructive */
+  --border: oklch(0.2 0 0); /* Dark borders */
+  --input: oklch(0.15 0.01 142); /* Dark input backgrounds */
+  --ring: oklch(0.75 0.15 100); /* Keep bright focus rings */
+  --chart-1: oklch(0.55 0.15 142);
+  --chart-2: oklch(0.75 0.15 100);
+  --chart-3: oklch(0.65 0.18 85);
+  --chart-4: oklch(0.6 0.22 25);
+  --chart-5: oklch(0.65 0.2 280);
+  --sidebar: oklch(0.1 0.01 142);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.55 0.15 142);
+  --sidebar-primary-foreground: oklch(0.08 0 0);
+  --sidebar-accent: oklch(0.75 0.15 100);
+  --sidebar-accent-foreground: oklch(0.08 0 0);
+  --sidebar-border: oklch(0.2 0 0);
+  --sidebar-ring: oklch(0.75 0.15 100);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Added smooth scrolling and improved typography */
+    scroll-behavior: smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Enhanced focus states for better accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Improved selection colors */
+  ::selection {
+    @apply bg-primary/20 text-primary-foreground;
+  }
+
+  /* Better scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Added custom animation classes for better UX */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  /* Enhanced card hover effects */
+  .card-hover {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-lg;
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  /* Improved button transitions */
+  .btn-transition {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .btn-transition:hover {
+    @apply scale-105;
+  }
+
+  .btn-transition:active {
+    @apply scale-95;
+  }
+
+  /* Better loading states */
+  .loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Enhanced text gradients for special elements */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive typography improvements */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Better spacing utilities */
+  .space-y-fluid > * + * {
+    margin-top: clamp(0.5rem, 2vw, 1.5rem);
+  }
+
+  .space-x-fluid > * + * {
+    margin-left: clamp(0.5rem, 2vw, 1.5rem);
+  }
+}
+
+/* Enhanced mobile experience */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+
+  .card-hover:hover {
+    @apply shadow-md;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card-hover:hover {
+    transform: scale(1) translateY(0);
+  }
+}
